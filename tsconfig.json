@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": "src",
+    "target": "esnext",
+    "module": "esnext",
+    "declaration": true,
+    "strict": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "lib": ["esnext", "dom"],
+    "outDir": "./lib"
+  },
+  "include": ["./src"],
+  "exclude": ["node_modules", "**/__tests__/*"]
+}

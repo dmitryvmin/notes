@@ -1,0 +1,41 @@
+{
+  "name": "@dmitrymin/notes",
+  "version": "1.0.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmitryvmin/notes.git"
+  },
+  "author": "Dmitry Minyaylov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dmitryvmin/notes/issues"
+  },
+  "homepage": "https://github.com/dmitryvmin/notes#readme",
+  "declaration": true,
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
+  "files": "lib",
+  "devDependencies": {
+    "@types/jest": "^26.0.14",
+    "date-fns": "^2.16.1",
+    "graphql": "^15.3.0",
+    "jest": "^26.4.2",
+    "npm-run-all": "^4.1.5",
+    "standard-version": "^9.0.0",
+    "ts-jest": "^26.4.0",
+    "typescript": "^4.0.3"
+  },
+  "scripts": {
+    "commit": "git-cz",
+    "watch": "tsc -w",
+    "build": "tsc -p tsconfig.json",
+    "test": "jest --config jest.config.js",
+    "prerelease": "git checkout master && git pull origin master && npm i && git add .",
+    "prepublishOnly": "npm test && npm run build",
+    "release": "standard-version -a",
+    "postrelease": "run-s release:*",
+    "release:tags": "git push --follow-tags origin master",
+    "publish": "git push --follow-tags origin master && npm publish --access public"
+  }
+}
